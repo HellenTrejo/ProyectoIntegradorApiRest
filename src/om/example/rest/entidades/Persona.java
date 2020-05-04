@@ -1,15 +1,16 @@
 package om.example.rest.entidades;
 
 public class Persona {
-	private String idPersona,numDoc,numcel;
+	private int idPersona;
+	private String numDoc,numcel;
 	private TipoDocumento idTipoDocumento;
 	private Nacionalidad idNacionalidad;
 	private Rol idRol;
 	private Estado idEstado;
-	public String getIdPersona() {
+	public int getIdPersona() {
 		return idPersona;
 	}
-	public void setIdPersona(String idPersona) {
+	public void setIdPersona(int idPersona) {
 		this.idPersona = idPersona;
 	}
 	public String getNumDoc() {

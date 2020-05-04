@@ -1,13 +1,14 @@
 package om.example.rest.entidades;
 
 public class Rol {
-	String idRol, nombreRol;
+	int idRol;
+	String  nombreRol;
 
-	public String getIdRol() {
+	public int getIdRol() {
 		return idRol;
 	}
 
-	public void setIdRol(String idRol) {
+	public void setIdRol(int idRol) {
 		this.idRol = idRol;
 	}
 

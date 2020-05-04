@@ -1,13 +1,14 @@
 package om.example.rest.entidades;
 
 public class TipoDocumento {
-	String idTipoDocumento, descripcion;
+	int idTipoDocumento;
+	String descripcion;
 
-	public String getIdTipoDocumento() {
+	public int getIdTipoDocumento() {
 		return idTipoDocumento;
 	}
 
-	public void setIdTipoDocumento(String idTipoDocumento) {
+	public void setIdTipoDocumento(int idTipoDocumento) {
 		this.idTipoDocumento = idTipoDocumento;
 	}
 
