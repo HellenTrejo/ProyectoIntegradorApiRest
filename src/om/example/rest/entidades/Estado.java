@@ -1,13 +1,14 @@
 package om.example.rest.entidades;
 
 public class Estado {
-	private String idEstado,descripcion;
+	private int idEstado;
+	private String descripcion;
 
-	public String getIdEstado() {
+	public int getIdEstado() {
 		return idEstado;
 	}
 
-	public void setIdEstado(String idEstado) {
+	public void setIdEstado(int idEstado) {
 		this.idEstado = idEstado;
 	}
 
