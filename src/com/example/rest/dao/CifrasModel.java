@@ -14,6 +14,7 @@ import com.example.rest.util.ConectaDB;
 
 import om.example.rest.entidades.Cifras;
 
+
 public class CifrasModel {
 private static final Log log = LogFactory.getLog(CifrasModel.class);
 	
@@ -28,6 +29,42 @@ private static final Log log = LogFactory.getLog(CifrasModel.class);
 			String sql = "select * from cifras";
 			conn = new ConectaDB().getAcceso();
 			pstm = conn.prepareStatement(sql);
+			log.info(pstm);
+			rs = pstm.executeQuery();
+			Cifras bean = null;
+			while(rs.next()){
+				bean = new Cifras();
+				bean.setIdCifras(rs.getInt(1));
+				bean.setNuevos(rs.getInt(2));
+				bean.setTotales(rs.getInt(3));
+				bean.setFallecidos(rs.getInt(4));
+				bean.setRecuperados(rs.getInt(5));
+				bean.setFecha(rs.getString(6));
+				lista.add(bean);
+			}
+		} catch (Exception e) {
+			log.info(e);
+		} finally {
+			try {
+				if (rs != null)rs.close();
+				if (pstm != null)pstm.close();
+				if (conn != null)conn.close();
+			} catch (SQLException e) {}
+		}
+		return lista;
+	}
+
+	public List<Cifras> consultaCifrasPorFecha(int userId) {
+		Connection conn = null;
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+		
+		List<Cifras> lista = new ArrayList<Cifras>();
+		try {
+			String sql = "select * from cifras where fecha = ?";
+			conn = new ConectaDB().getAcceso();
+			pstm = conn.prepareStatement(sql);
+			pstm.setInt(1, userId);
 			log.info(pstm);
 			rs = pstm.executeQuery();
 			Cifras bean = null;
