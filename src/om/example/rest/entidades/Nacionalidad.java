@@ -1,13 +1,14 @@
 package om.example.rest.entidades;
 
 public class Nacionalidad {
-	private String idNacionalidad, nombreNacionalidad;
+	private int idNacionalidad;
+	private String  nombreNacionalidad;
 
-	public String getIdNacionalidad() {
+	public int getIdNacionalidad() {
 		return idNacionalidad;
 	}
 
-	public void setIdNacionalidad(String idNacionalidad) {
+	public void setIdNacionalidad(int idNacionalidad) {
 		this.idNacionalidad = idNacionalidad;
 	}
 

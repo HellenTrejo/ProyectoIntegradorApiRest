@@ -1,4 +1,5 @@
 <% 
-response.sendRedirect("./rest/servicios/users");
+
+response.sendRedirect("./rest/servicios/cifras");
 
 %>

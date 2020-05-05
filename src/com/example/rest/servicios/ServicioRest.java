@@ -10,6 +10,8 @@ import javax.ws.rs.core.Response;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
+import com.example.rest.dao.CifrasModel;
+import com.example.rest.dao.EstadoModel;
 import com.example.rest.dao.PostModel;
 import com.example.rest.dao.UserModel;
 
@@ -25,6 +27,12 @@ public class ServicioRest {
 	private static final Log log = LogFactory.getLog(ServicioRest.class);
 	private PostModel daoPost = new PostModel();
 	private UserModel daoUser = new UserModel();
+	
+	//
+	
+	private EstadoModel daoEstado = new EstadoModel();
+	private CifrasModel daoCifras = new CifrasModel();
+	
 	
 	@GET
 	@Path("/posts/{userId}")
@@ -42,10 +50,31 @@ public class ServicioRest {
 		return Response.ok(daoUser.listarTodos()).build();
 	}
 	
+//
 	
+	@GET
+	@Path("/estados")
+	@Produces({ MediaType.APPLICATION_JSON })
+	public Response listarEstados() {
+		log.info("listarEstados rest ");
+		return Response.ok(daoEstado.listarEstados()).build();
+	}
+	
+	@GET
+	@Path("/cifras")
+	@Produces({ MediaType.APPLICATION_JSON })
+	public Response listarCifras() {
+		log.info("listarCifras rest ");
+		return Response.ok(daoCifras.listarCifras()).build();
+	}
 
-
-
+	@GET
+	@Path("/cifras/{fecha}")
+	@Produces({ MediaType.APPLICATION_JSON })
+	public Response consultaPorFecha(@PathParam("fecha") String fecha) {
+		log.info("listarTodos rest ");
+		return Response.ok(daoCifras.consultaCifrasPorFecha(fecha)).build();
+	}
 
 
 }

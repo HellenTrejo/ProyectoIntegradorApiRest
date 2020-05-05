@@ -54,7 +54,7 @@ private static final Log log = LogFactory.getLog(CifrasModel.class);
 		return lista;
 	}
 
-	public List<Cifras> consultaCifrasPorFecha(int userId) {
+	public List<Cifras> consultaCifrasPorFecha(String fecha) {
 		Connection conn = null;
 		PreparedStatement pstm = null;
 		ResultSet rs = null;
@@ -64,7 +64,7 @@ private static final Log log = LogFactory.getLog(CifrasModel.class);
 			String sql = "select * from cifras where fecha = ?";
 			conn = new ConectaDB().getAcceso();
 			pstm = conn.prepareStatement(sql);
-			pstm.setInt(1, userId);
+			pstm.setString(1, fecha);
 			log.info(pstm);
 			rs = pstm.executeQuery();
 			Cifras bean = null;
