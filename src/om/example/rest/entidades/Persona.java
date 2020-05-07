@@ -3,10 +3,10 @@ package om.example.rest.entidades;
 public class Persona {
 	private int idPersona;
 	private String numDoc,numcel;
-	private TipoDocumento idTipoDocumento;
-	private Nacionalidad idNacionalidad;
-	private Rol idRol;
-	private Estado idEstado;
+	private TipoDocumento tipoDocumento;
+	private Nacionalidad nacionalidad;
+	private Rol rol;
+	private Estado estado;
 	public int getIdPersona() {
 		return idPersona;
 	}
@@ -25,31 +25,30 @@ public class Persona {
 	public void setNumcel(String numcel) {
 		this.numcel = numcel;
 	}
-	public TipoDocumento getIdTipoDocumento() {
-		return idTipoDocumento;
+	public TipoDocumento getTipoDocumento() {
+		return tipoDocumento;
 	}
-	public void setIdTipoDocumento(TipoDocumento idTipoDocumento) {
-		this.idTipoDocumento = idTipoDocumento;
+	public void setTipoDocumento(TipoDocumento tipoDocumento) {
+		this.tipoDocumento = tipoDocumento;
 	}
-	public Nacionalidad getIdNacionalidad() {
-		return idNacionalidad;
+	public Nacionalidad getNacionalidad() {
+		return nacionalidad;
 	}
-	public void setIdNacionalidad(Nacionalidad idNacionalidad) {
-		this.idNacionalidad = idNacionalidad;
+	public void setNacionalidad(Nacionalidad nacionalidad) {
+		this.nacionalidad = nacionalidad;
 	}
-	public Rol getIdRol() {
-		return idRol;
+	public Rol getRol() {
+		return rol;
 	}
-	public void setIdRol(Rol idRol) {
-		this.idRol = idRol;
+	public void setRol(Rol rol) {
+		this.rol = rol;
 	}
-	public Estado getIdEstado() {
-		return idEstado;
+	public Estado getEstado() {
+		return estado;
 	}
-	public void setIdEstado(Estado idEstado) {
-		this.idEstado = idEstado;
+	public void setEstado(Estado estado) {
+		this.estado = estado;
 	}
-	
 	
 	
 

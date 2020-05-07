@@ -43,10 +43,10 @@ private static final Log log= LogFactory.getLog(TriajeModel.class);
 				per=new Persona();
 				bean.setIdTriaje(rs.getInt(1));
 				pre.setIdPregunta(rs.getInt(2));
-				bean.setIdPregunta(pre);
+				bean.setPregunta(pre);
 				bean.setRespuesta(rs.getString(3));
 				per.setIdPersona(rs.getInt(4));
-				bean.setIdPersona(per);
+				bean.setPersona(per);
 				lista.add(bean);
 			}
 		} catch (Exception e) {
