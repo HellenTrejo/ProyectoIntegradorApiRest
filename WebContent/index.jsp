@@ -1,3 +1,3 @@
 <% 
-response.sendRedirect("./rest/servicios/triajes");
+response.sendRedirect("./rest/servicios/preguntas");
 %>
