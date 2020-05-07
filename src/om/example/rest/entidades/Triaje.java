@@ -5,6 +5,7 @@ public class Triaje {
 	private String  respuesta;
 	private Pregunta idPregunta;
 	private Persona idPersona;
+	
 	public int getIdTriaje() {
 		return idTriaje;
 	}

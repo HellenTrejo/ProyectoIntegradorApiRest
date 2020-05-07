@@ -12,6 +12,7 @@ import org.apache.commons.logging.LogFactory;
 
 import com.example.rest.dao.PostModel;
 import com.example.rest.dao.PreguntaModel;
+import com.example.rest.dao.TriajeModel;
 import com.example.rest.dao.UserModel;
 
 //GET,POST,PUT,DELETE métodos del protocolo HTTP
@@ -27,6 +28,7 @@ public class ServicioRest {
 	private PostModel daoPost = new PostModel();
 	private UserModel daoUser = new UserModel();
 	private PreguntaModel daoPregunta= new PreguntaModel();
+	private TriajeModel daoTriaje= new TriajeModel();
 	
 	@GET
 	@Path("/posts/{userId}")
@@ -50,6 +52,14 @@ public class ServicioRest {
 	public Response listarPeguntas() {
 		log.info("listarPreguntas rest ");
 		return Response.ok(daoPregunta.listarPreguntas()).build();
+	}
+	
+	@GET
+	@Path("/triajes")
+	@Produces({ MediaType.APPLICATION_JSON })
+	public Response listarTriaje() {
+		log.info("listarTriaje rest ");
+		return Response.ok(daoTriaje.listarTriaje()).build();
 	}
 	
 
