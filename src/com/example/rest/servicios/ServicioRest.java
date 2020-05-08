@@ -35,11 +35,20 @@ public class ServicioRest {
 	}
 	
 	@GET
-	@Path("/users")
+	@Path("/tipodoc")
 	@Produces({ MediaType.APPLICATION_JSON })
 	public Response listarTodos() {
-		log.info("listarTodos rest ");
-		return Response.ok(daoUser.listarTodos()).build();
+		log.info("listartipodocumento rest ");
+		return Response.ok(daoTipoDocumento.listarTipoDocumento()).build();
+	}
+	
+	
+	@GET
+	@Path("/nacionalidad")
+	@Produces({ MediaType.APPLICATION_JSON })
+	public Response listarTriaje() {
+		log.info("listarnacionalidad rest ");
+		return Response.ok(daoNacionalidad.listarNacionalidad()).build();
 	}
 	
 	
