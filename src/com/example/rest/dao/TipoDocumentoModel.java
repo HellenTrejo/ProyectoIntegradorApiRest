@@ -15,7 +15,7 @@ import com.example.rest.util.ConectaDB;
 import om.example.rest.entidades.TipoDocumento;
 
 public class TipoDocumentoModel {
-	private static final Log log= LogFactory.getLog(TipoDocumento.class);
+	private static final Log log= LogFactory.getLog(TipoDocumentoModel.class);
 	
 	public List<TipoDocumento> listarTipoDocumento() {
 		Connection conn = null;
