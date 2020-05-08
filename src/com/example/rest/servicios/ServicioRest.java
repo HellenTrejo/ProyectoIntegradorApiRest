@@ -37,7 +37,7 @@ public class ServicioRest {
 	@GET
 	@Path("/tipodoc")
 	@Produces({ MediaType.APPLICATION_JSON })
-	public Response listarTodos() {
+	public Response listarTipoDocumento() {
 		log.info("listartipodocumento rest ");
 		return Response.ok(daoTipoDocumento.listarTipoDocumento()).build();
 	}
@@ -46,7 +46,7 @@ public class ServicioRest {
 	@GET
 	@Path("/nacionalidad")
 	@Produces({ MediaType.APPLICATION_JSON })
-	public Response listarTriaje() {
+	public Response listarNacionalidad() {
 		log.info("listarnacionalidad rest ");
 		return Response.ok(daoNacionalidad.listarNacionalidad()).build();
 	}
