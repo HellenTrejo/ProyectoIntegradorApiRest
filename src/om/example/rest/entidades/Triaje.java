@@ -3,8 +3,8 @@ package om.example.rest.entidades;
 public class Triaje {
 	private int idTriaje;
 	private String  respuesta;
-	private Pregunta idPregunta;
-	private Persona idPersona;
+	private Pregunta Pregunta;
+	private Persona Persona;
 	
 	public int getIdTriaje() {
 		return idTriaje;
@@ -18,17 +18,17 @@ public class Triaje {
 	public void setRespuesta(String respuesta) {
 		this.respuesta = respuesta;
 	}
-	public Pregunta getIdPregunta() {
-		return idPregunta;
+	public Pregunta getPregunta() {
+		return Pregunta;
 	}
-	public void setIdPregunta(Pregunta idPregunta) {
-		this.idPregunta = idPregunta;
+	public void setPregunta(Pregunta idPregunta) {
+		this.Pregunta = idPregunta;
 	}
-	public Persona getIdPersona() {
-		return idPersona;
+	public Persona getPersona() {
+		return Persona;
 	}
-	public void setIdPersona(Persona idPersona) {
-		this.idPersona = idPersona;
+	public void setPersona(Persona idPersona) {
+		this.Persona = idPersona;
 	}
 	
 	
