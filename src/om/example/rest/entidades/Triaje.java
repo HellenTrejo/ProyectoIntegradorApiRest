@@ -8,6 +8,16 @@ public class Triaje {
 	private Persona persona;
 
 	
+	public Triaje(int idTriaje, String respuesta, Pregunta pregunta, Persona persona) {
+		super();
+		this.idTriaje = idTriaje;
+		this.respuesta = respuesta;
+		this.pregunta = pregunta;
+		this.persona = persona;
+	}
+	public Triaje() {
+		super();
+	}
 	public int getIdTriaje() {
 		return idTriaje;
 	}
