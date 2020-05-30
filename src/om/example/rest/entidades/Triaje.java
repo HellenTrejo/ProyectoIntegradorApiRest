@@ -3,9 +3,11 @@ package om.example.rest.entidades;
 public class Triaje {
 	private int idTriaje;
 	private String  respuesta;
+
 	private Pregunta pregunta;
 	private Persona persona;
 	
+
 	public int getIdTriaje() {
 		return idTriaje;
 	}

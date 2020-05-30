@@ -3,10 +3,13 @@ package om.example.rest.entidades;
 public class Persona {
 	private int idPersona;
 	private String numDoc,numcel;
+
 	private TipoDocumento tipoDocumento;
 	private Nacionalidad nacionalidad;
 	private Rol rol;
 	private Estado estado;
+
+
 	public int getIdPersona() {
 		return idPersona;
 	}
