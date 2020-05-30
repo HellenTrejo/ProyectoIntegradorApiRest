@@ -14,27 +14,28 @@ import org.apache.commons.logging.LogFactory;
 import com.example.rest.util.ConectaDB;
 
 import om.example.rest.entidades.Nacionalidad;
+import om.example.rest.entidades.Rol;
 
-public class NacionalidadModel {
-	private static final Log log= LogFactory.getLog(NacionalidadModel.class);
+public class RolModel {
+	private static final Log log= LogFactory.getLog(RolModel.class);
 	
-	public List<Nacionalidad> listarNacionalidad() {
+	public List<Rol> listaRol() {
 		Connection conn = null;
 		PreparedStatement pstm = null;
 		ResultSet rs = null;
 		
-		List<Nacionalidad> lista = new ArrayList<Nacionalidad>();
+		List<Rol> lista = new ArrayList<Rol>();
 		try {
-			String sql = "select * from nacionalidad";
+			String sql = "select * from rol";
 			conn = new ConectaDB().getAcceso();
 			pstm = conn.prepareStatement(sql);
 			log.info(pstm);
 			rs = pstm.executeQuery();
-			Nacionalidad bean = null;
+			Rol bean = null;
 			while(rs.next()){
-				bean = new Nacionalidad();
-				bean.setIdNacionalidad(rs.getInt(1));
-				bean.setNombreNacionalidad(rs.getString(2));
+				bean = new Rol();
+				bean.setIdRol(rs.getInt(1));
+				bean.setNombreRol(rs.getString(2));
 				
 				lista.add(bean);
 			}

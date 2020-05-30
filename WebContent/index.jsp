@@ -1,3 +1,3 @@
 <% 
-response.sendRedirect("./rest/servicios/nacionalidad");
+response.sendRedirect("./rest/servicios/persona");
 %>

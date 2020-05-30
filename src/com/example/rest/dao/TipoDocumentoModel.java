@@ -32,8 +32,8 @@ public class TipoDocumentoModel {
 			TipoDocumento bean = null;
 			while(rs.next()){
 				bean = new TipoDocumento();
-				bean.setidTipoDocumento(rs.getInt(1));
-				bean.setdescripcion(rs.getString(2));
+				bean.setIdTipoDocumento(rs.getInt(1));
+				bean.setDescripcion(rs.getString(2));
 				
 				lista.add(bean);
 			}
