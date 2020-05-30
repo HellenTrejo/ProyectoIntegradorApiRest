@@ -15,7 +15,7 @@ import com.example.rest.util.ConectaDB;
 import om.example.rest.entidades.Persona;
 import om.example.rest.entidades.Pregunta;
 import om.example.rest.entidades.Triaje;
-import om.example.rest.entidades.User;
+
 
 
 

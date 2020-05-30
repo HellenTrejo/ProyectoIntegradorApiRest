@@ -13,7 +13,7 @@ import org.apache.commons.logging.LogFactory;
 
 import com.example.rest.util.ConectaDB;
 
-import om.example.rest.entidades.Nacionalidad;
+
 import om.example.rest.entidades.Rol;
 
 public class RolModel {

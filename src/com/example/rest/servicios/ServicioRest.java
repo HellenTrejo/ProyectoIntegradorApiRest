@@ -4,7 +4,6 @@ import javax.ws.rs.Consumes;
 
 import javax.ws.rs.DELETE;
 
-import javax.ws.rs.FormParam;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -25,11 +24,11 @@ import com.example.rest.dao.EstadoModel;
 import com.example.rest.dao.NacionalidadModel;
 import com.example.rest.dao.PersonaModel;
 
-import com.example.rest.dao.PostModel;
+
 
 import com.example.rest.dao.RolModel;
 import com.example.rest.dao.TipoDocumentoModel;
-import com.example.rest.dao.UserModel;
+
 
 
 import om.example.rest.entidades.Cifras;
@@ -55,8 +54,7 @@ import om.example.rest.entidades.Triaje;
 @Path("/servicios")
 public class ServicioRest {
 	private static final Log log = LogFactory.getLog(ServicioRest.class);
-	private PostModel daoPost = new PostModel();
-	private UserModel daoUser = new UserModel();
+	
 	
 	private PreguntaModel daoPregunta= new PreguntaModel();
 	private TriajeModel daoTriaje= new TriajeModel();
@@ -71,13 +69,7 @@ public class ServicioRest {
 	private PersonaModel daoPersona = new PersonaModel();
 
 	
-	@GET
-	@Path("/posts/{userId}")
-	@Produces({ MediaType.APPLICATION_JSON })
-	public Response consultaPorId(@PathParam("userId") int id) {
-		log.info("listarTodos rest ");
-		return Response.ok(daoPost.consultaPostPorUserId(id)).build();
-	}
+	
 	
 	
 	@GET
