@@ -7,7 +7,6 @@ public class Triaje {
 	private Pregunta pregunta;
 	private Persona persona;
 	
-
 	public int getIdTriaje() {
 		return idTriaje;
 	}
@@ -32,6 +31,10 @@ public class Triaje {
 	public void setPersona(Persona persona) {
 		this.persona = persona;
 	}
+	
+
+
+
 	
 	
 

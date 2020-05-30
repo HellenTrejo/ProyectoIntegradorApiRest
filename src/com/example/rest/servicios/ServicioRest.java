@@ -4,6 +4,8 @@ import javax.ws.rs.Consumes;
 
 import javax.ws.rs.DELETE;
 
+import javax.ws.rs.FormParam;
+
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
@@ -24,6 +26,7 @@ import com.example.rest.dao.NacionalidadModel;
 import com.example.rest.dao.PersonaModel;
 
 import com.example.rest.dao.PostModel;
+
 import com.example.rest.dao.RolModel;
 import com.example.rest.dao.TipoDocumentoModel;
 import com.example.rest.dao.UserModel;
@@ -33,6 +36,13 @@ import om.example.rest.entidades.Cifras;
 
 
 import om.example.rest.entidades.Persona;
+
+
+import com.example.rest.dao.PreguntaModel;
+import com.example.rest.dao.TriajeModel;
+
+
+import om.example.rest.entidades.Triaje;
 
 
 //GET,POST,PUT,DELETE métodos del protocolo HTTP
@@ -48,8 +58,9 @@ public class ServicioRest {
 	private PostModel daoPost = new PostModel();
 	private UserModel daoUser = new UserModel();
 	
-
-	//
+	private PreguntaModel daoPregunta= new PreguntaModel();
+	private TriajeModel daoTriaje= new TriajeModel();
+	
 	
 	private EstadoModel daoEstado = new EstadoModel();
 	private CifrasModel daoCifras = new CifrasModel();
@@ -67,6 +78,7 @@ public class ServicioRest {
 		log.info("listarTodos rest ");
 		return Response.ok(daoPost.consultaPostPorUserId(id)).build();
 	}
+	
 	
 	@GET
 	@Path("/tipodoc")
@@ -102,6 +114,7 @@ public class ServicioRest {
 	}
 
 	
+
 	@POST
 	   @Path("/cifras/add")
 	   @Consumes(MediaType.APPLICATION_JSON)
@@ -117,6 +130,41 @@ public class ServicioRest {
 		public int actualizarCifras(Cifras bean) {
 		return daoCifras.actualizaCifras(bean);
 }
+
+	@GET
+	@Path("/preguntas")
+	@Produces({ MediaType.APPLICATION_JSON })
+	public Response listarPeguntas() {
+		log.info("listarPreguntas rest ");
+		return Response.ok(daoPregunta.listarPreguntas()).build();
+	}
+	
+	@GET
+	@Path("/triajes")
+	@Produces({ MediaType.APPLICATION_JSON })
+	public Response listarTriaje() {
+		log.info("listarTriaje rest ");
+		return Response.ok(daoTriaje.listarTriaje()).build();
+	}
+	
+	@POST
+	   @Path("/triaje/add")
+	   @Consumes(MediaType.APPLICATION_JSON)
+	   public Response saveTriaje(Triaje data){
+		log.info("saveTriaje rest ");
+		return Response.ok(daoTriaje.insertaTriaje(data)).build();
+	   }
+
+	@PUT
+	   @Path("/triaje{id}")
+	   @Consumes(MediaType.APPLICATION_JSON)
+	   @Produces(MediaType.APPLICATION_JSON)
+	   public Response updateTriaje(@PathParam("id") int id, Triaje data){
+		log.info("updateTriaje rest ");
+		return Response.ok(daoTriaje.actualizaTriaje(data)).build();
+  
+	   }
+
 
 		@Path("/nacionalidad")
 		@Produces({ MediaType.APPLICATION_JSON })
