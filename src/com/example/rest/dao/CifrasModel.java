@@ -15,6 +15,7 @@ import com.example.rest.util.ConectaDB;
 import om.example.rest.entidades.Cifras;
 
 
+
 public class CifrasModel {
 private static final Log log = LogFactory.getLog(CifrasModel.class);
 	
@@ -89,6 +90,88 @@ private static final Log log = LogFactory.getLog(CifrasModel.class);
 		}
 		return lista;
 	}
+	
+	public int insertaCifras(Cifras obj) {
+		Connection conn = null;
+		PreparedStatement pstm = null;
+		int salida = -1;
+		try {
+			String sql = "insert into cifras values(null,?,?,?,?,?)";
+			conn = new ConectaDB().getAcceso();
+			pstm = conn.prepareStatement(sql);
+			pstm.setInt(1, obj.getNuevos());
+			pstm.setInt(2, obj.getTotales());
+			pstm.setInt(3, obj.getFallecidos());
+			pstm.setInt(4, obj.getRecuperados());
+			pstm.setString(5, obj.getFecha());
+			log.info(pstm);
+			salida = pstm.executeUpdate();
+		} catch (Exception e) {
+			log.info(e);
+		} finally {
+			try {
+				if (pstm != null)pstm.close();
+			} catch (SQLException e1) {}
+			try {
+				if (conn != null)conn.close();
+			} catch (SQLException e) {}
+		}
+		return salida;
+	}
+	
+	public int actualizaCifras(Cifras obj) {
+		Connection conn = null;
+		PreparedStatement pstm = null;
+		int salida = -1;
+		try {
+			String sql = "update cifras set nuevos =?, totales =?, fallecidos =?, recuperados =? where idcifras =? ";
+			conn = new ConectaDB().getAcceso();
+			pstm = conn.prepareStatement(sql);
+			pstm.setInt(1, obj.getNuevos());
+			pstm.setInt(2, obj.getTotales());
+			pstm.setInt(3, obj.getFallecidos());
+			pstm.setInt(4, obj.getRecuperados());
+			pstm.setString(5, obj.getFecha());
+			log.info(pstm);
+			
+			salida = pstm.executeUpdate();
+		} catch (Exception e) {
+			log.info(e);
+		} finally {
+			try {
+				if (pstm != null)pstm.close();
+			} catch (SQLException e1) {}
+			try {
+				if (conn != null)conn.close();
+			} catch (SQLException e) {}
+		}
+		return salida;
+	}
+	
+	public int eliminaCifras(Cifras obj) {
+		Connection conn = null;
+		PreparedStatement pstm = null;
+		int salida = -1;
+		try {
+			String sql = "delete from cifras where idcifras =?";
+			conn = new ConectaDB().getAcceso();
+			pstm = conn.prepareStatement(sql);
+			pstm.setInt(1, obj.getIdCifras());
+			log.info(pstm);
+			salida = pstm.executeUpdate();
+		} catch (Exception e) {
+			log.info(e);
+		} finally {
+			try {
+				if (pstm != null)pstm.close();
+			} catch (SQLException e1) {}
+			try {
+				if (conn != null)conn.close();
+			} catch (SQLException e) {}
+		}
+		return salida;
+	}
+
 
 
 }
