@@ -2,7 +2,7 @@
 
 
 
-response.sendRedirect("./rest/servicios/cifras");
+response.sendRedirect("./rest/servicios/estados");
 
 
 

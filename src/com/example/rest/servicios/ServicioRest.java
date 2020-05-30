@@ -82,6 +82,7 @@ public class ServicioRest {
 	
 //
 
+	@GET
 	@Path("/estados")
 	@Produces({ MediaType.APPLICATION_JSON })
 	public Response listarEstados() {
@@ -157,7 +158,7 @@ public class ServicioRest {
   
 	   }
 
-
+	@GET
 		@Path("/nacionalidad")
 		@Produces({ MediaType.APPLICATION_JSON })
 		public Response listarNacionalidad() {
