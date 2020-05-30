@@ -83,27 +83,26 @@ public class ServicioRest {
 		return Response.ok(daoCifras.consultaCifrasPorFecha(fecha)).build();
 	}
 
+	
 	@POST
 	   @Path("/cifras/add")
 	   @Consumes(MediaType.APPLICATION_JSON)
-	   public Response saveCifras(Cifras data){
-		log.info("saveCifras rest ");
-		return Response.ok(daoCifras.insertaCifras(data)).build();
-	   }
-
+	   @Produces(MediaType.APPLICATION_JSON)
+		public int registrarCifras(Cifras bean) {
+		return daoCifras.insertaCifras(bean);
+	}
+	
 	@PUT
-	   @Path("/cifras{id}")
+	   @Path("/cifras")
 	   @Consumes(MediaType.APPLICATION_JSON)
 	   @Produces(MediaType.APPLICATION_JSON)
-	   public Response updateCifras(@PathParam("id") int id, Cifras data){
-		log.info("updateCifras rest ");
-		return Response.ok(daoCifras.actualizaCifras(data)).build();
-
-	   }
-
+		public int actualizarCifras(Cifras bean) {
+		return daoCifras.actualizaCifras(bean);
+	}
 
 	@DELETE
 	   @Path("/cifrasD{id}")
+	   @Produces(MediaType.APPLICATION_JSON)
 	   public Response removeCifras(@PathParam("id") int id, Cifras data){
 		log.info("removeCifras rest ");
 		return Response.ok(daoCifras.eliminaCifras(data)).build();
