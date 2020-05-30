@@ -124,7 +124,7 @@ private static final Log log = LogFactory.getLog(CifrasModel.class);
 		PreparedStatement pstm = null;
 		int salida = -1;
 		try {
-			String sql = "update cifras set nuevos =?, totales =?, fallecidos =?, recuperados =? where idcifras =? ";
+			String sql = "update cifras set nuevos =?, totales =?, fallecidos =?, recuperados =?, fecha =? where idcifras =? ";
 			conn = new ConectaDB().getAcceso();
 			pstm = conn.prepareStatement(sql);
 			pstm.setInt(1, obj.getNuevos());
@@ -132,6 +132,7 @@ private static final Log log = LogFactory.getLog(CifrasModel.class);
 			pstm.setInt(3, obj.getFallecidos());
 			pstm.setInt(4, obj.getRecuperados());
 			pstm.setString(5, obj.getFecha());
+			pstm.setInt(6, obj.getIdCifras());
 			log.info(pstm);
 			
 			salida = pstm.executeUpdate();
