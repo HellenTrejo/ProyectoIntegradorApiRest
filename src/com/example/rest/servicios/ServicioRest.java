@@ -1,6 +1,11 @@
 package com.example.rest.servicios;
 
+import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
+import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -14,6 +19,8 @@ import com.example.rest.dao.PostModel;
 import com.example.rest.dao.PreguntaModel;
 import com.example.rest.dao.TriajeModel;
 import com.example.rest.dao.UserModel;
+
+import om.example.rest.entidades.Triaje;
 
 //GET,POST,PUT,DELETE métodos del protocolo HTTP
 	// La tecnología rest utiliza estos cuatro métodos
@@ -62,7 +69,23 @@ public class ServicioRest {
 		return Response.ok(daoTriaje.listarTriaje()).build();
 	}
 	
+	@POST
+	   @Path("/triaje/add")
+	   @Consumes(MediaType.APPLICATION_JSON)
+	   public Response saveTriaje(Triaje data){
+		log.info("saveTriaje rest ");
+		return Response.ok(daoTriaje.insertaTriaje(data)).build();
+	   }
 
+	@PUT
+	   @Path("/triaje{id}")
+	   @Consumes(MediaType.APPLICATION_JSON)
+	   @Produces(MediaType.APPLICATION_JSON)
+	   public Response updateTriaje(@PathParam("id") int id, Triaje data){
+		log.info("updateTriaje rest ");
+		return Response.ok(daoTriaje.actualizaTriaje(data)).build();
+  
+	   }
 
 
 
