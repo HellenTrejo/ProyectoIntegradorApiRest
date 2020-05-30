@@ -27,7 +27,7 @@ private static final Log log= LogFactory.getLog(TriajeModel.class);
 		
 		List<Triaje> lista = new ArrayList<Triaje>();
 		try {
-			String sql = "select t.idtriaje, p.idpregunta, t.respuesta, e.idpersona, e.numDoc,e.numcel "
+			String sql = "select t.idtriaje, p.idpregunta,p.descripcion, t.respuesta, e.idpersona, e.numDoc,e.numcel "
 					+ "from pregunta p inner join triaje t on p.idpregunta = t.idpregunta "
 					+ "inner join persona e on t.idpersona= e.idpersona ";
 			conn = new ConectaDB().getAcceso();
@@ -41,18 +41,14 @@ private static final Log log= LogFactory.getLog(TriajeModel.class);
 				beanTriaje = new Triaje();
 				beanPregunta= new Pregunta();
 				beanPersona=new Persona();
-				
 				beanTriaje.setIdTriaje(rs.getInt(1));
-				
-				beanPregunta.setDescripcion(rs.getString(2));
+				beanPregunta.setIdPregunta(rs.getInt(2));
+				beanPregunta.setDescripcion(rs.getString(3));
 				beanTriaje.setPregunta(beanPregunta);
-				
-				beanTriaje.setRespuesta(rs.getString(3));
-				
-				beanPersona.setIdPersona(rs.getInt(4));
-				
-				beanPersona.setNumDoc(rs.getString(5));
-				beanPersona.setNumcel(rs.getString(6));
+				beanTriaje.setRespuesta(rs.getString(4));
+				beanPersona.setIdPersona(rs.getInt(5));
+				beanPersona.setNumDoc(rs.getString(6));
+				beanPersona.setNumcel(rs.getString(7));
 				beanTriaje.setPersona(beanPersona);
 				lista.add(beanTriaje);
 			}
