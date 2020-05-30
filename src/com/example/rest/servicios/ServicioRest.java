@@ -1,5 +1,7 @@
 package com.example.rest.servicios;
 
+import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
@@ -16,6 +18,9 @@ import com.example.rest.dao.CifrasModel;
 import com.example.rest.dao.EstadoModel;
 import com.example.rest.dao.PostModel;
 import com.example.rest.dao.UserModel;
+
+import om.example.rest.entidades.Cifras;
+
 
 //GET,POST,PUT,DELETE métodos del protocolo HTTP
 	// La tecnología rest utiliza estos cuatro métodos
@@ -78,8 +83,31 @@ public class ServicioRest {
 		return Response.ok(daoCifras.consultaCifrasPorFecha(fecha)).build();
 	}
 
-	
+	@POST
+	   @Path("/cifras/add")
+	   @Consumes(MediaType.APPLICATION_JSON)
+	   public Response saveCifras(Cifras data){
+		log.info("saveCifras rest ");
+		return Response.ok(daoCifras.insertaCifras(data)).build();
+	   }
 
+	@PUT
+	   @Path("/cifras{id}")
+	   @Consumes(MediaType.APPLICATION_JSON)
+	   @Produces(MediaType.APPLICATION_JSON)
+	   public Response updateCifras(@PathParam("id") int id, Cifras data){
+		log.info("updateCifras rest ");
+		return Response.ok(daoCifras.actualizaCifras(data)).build();
+
+	   }
+
+
+	@DELETE
+	   @Path("/cifrasD{id}")
+	   public Response removeCifras(@PathParam("id") int id, Cifras data){
+		log.info("removeCifras rest ");
+		return Response.ok(daoCifras.eliminaCifras(data)).build();
+	   }
 
 	
 	
