@@ -110,16 +110,16 @@ public class ServicioRest {
 
 	@POST
 	   @Path("/cifras/add")
-	   @Consumes(MediaType.APPLICATION_JSON)
-	   @Produces(MediaType.APPLICATION_JSON)
+	   @Consumes({MediaType.APPLICATION_JSON})
+	   @Produces({MediaType.APPLICATION_JSON})
 		public int registrarCifras(Cifras bean) {
 		return daoCifras.insertaCifras(bean);
 	}
 	
 	@PUT
 	   @Path("/cifras")
-	   @Consumes(MediaType.APPLICATION_JSON)
-	   @Produces(MediaType.APPLICATION_JSON)
+	   @Consumes({MediaType.APPLICATION_JSON})
+	   @Produces({MediaType.APPLICATION_JSON})
 		public int actualizarCifras(Cifras bean) {
 		return daoCifras.actualizaCifras(bean);
 }
@@ -142,7 +142,7 @@ public class ServicioRest {
 	
 	@POST
 	   @Path("/triaje/add")
-	   @Consumes(MediaType.APPLICATION_JSON)
+	   @Consumes({MediaType.APPLICATION_JSON})
 	   public Response saveTriaje(Triaje data){
 		log.info("saveTriaje rest ");
 		return Response.ok(daoTriaje.insertaTriaje(data)).build();
@@ -150,8 +150,8 @@ public class ServicioRest {
 
 	@PUT
 	   @Path("/triaje{id}")
-	   @Consumes(MediaType.APPLICATION_JSON)
-	   @Produces(MediaType.APPLICATION_JSON)
+	   @Consumes({MediaType.APPLICATION_JSON})
+	   @Produces({MediaType.APPLICATION_JSON})
 	   public Response updateTriaje(@PathParam("id") int id, Triaje data){
 		log.info("updateTriaje rest ");
 		return Response.ok(daoTriaje.actualizaTriaje(data)).build();
@@ -183,17 +183,17 @@ public class ServicioRest {
 	}
 	
 	@POST
-	   @Path("/persona/add")
-	   @Consumes(MediaType.APPLICATION_JSON)
-	   @Produces(MediaType.APPLICATION_JSON)
+	   @Path("/persona")
+	   @Consumes({MediaType.APPLICATION_JSON})
+	   @Produces({MediaType.APPLICATION_JSON})
 		public int registrarPersona(Persona bean) {
 		return daoPersona.insertaPersona(bean);
 	}
 	
 	@PUT
 	   @Path("/persona")
-	   @Consumes(MediaType.APPLICATION_JSON)
-	   @Produces(MediaType.APPLICATION_JSON)
+	   @Consumes({MediaType.APPLICATION_JSON})
+	   @Produces({MediaType.APPLICATION_JSON})
 		public int actualizarPersona(Persona bean) {
 		return daoPersona.actualizaPersona(bean);
 
@@ -201,7 +201,7 @@ public class ServicioRest {
 
 	@DELETE
 	   @Path("/cifrasD{id}")
-	   @Produces(MediaType.APPLICATION_JSON)
+	   @Produces({MediaType.APPLICATION_JSON})
 	   public Response removeCifras(@PathParam("id") int id, Cifras data){
 		log.info("removeCifras rest ");
 		return Response.ok(daoCifras.eliminaCifras(data)).build();
