@@ -79,8 +79,8 @@ private static final Log log= LogFactory.getLog(TriajeModel.class);
 			conn = new ConectaDB().getAcceso();
 			pstm = conn.prepareStatement(sql);
 			pstm.setString(1, bean.getRespuesta());
-			pstm.setInt(2, bean.getPregunta().getIdPregunta());
-			pstm.setInt(3, bean.getPersona().getIdPersona());
+			pstm.setInt(2, bean.getIdpregunta());
+			pstm.setInt(3, bean.getIdpersona());
 	
 			
 			log.info(pstm);

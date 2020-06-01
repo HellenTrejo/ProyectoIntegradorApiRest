@@ -30,7 +30,13 @@ public class PersonaModel {
 		
 		List<Persona> lista = new ArrayList<Persona>();
 		try {
-			String sql = "SELECT p.idpersona,p.numDoc,p.numCel,t.idtipo_documento, t.descripcion,n.idnacionalidad,n.nombreNacionalidad, r.idRol, r.nombreRol, e.idestado, e.descripcion  FROM persona p inner join tipo_documento t on p.idtipoDocumento = t.idtipo_documento inner join nacionalidad n  on p.idnacionalidad =n.idnacionalidad inner join rol r on p.idrol = r.idRol inner join estado e";
+			String sql = "SELECT p.idpersona,p.numDoc,p.numCel,t.idtipo_documento,\r\n" + 
+					" t.descripcion,n.idnacionalidad,n.nombreNacionalidad, \r\n" + 
+					" r.idRol, r.nombreRol, e.idestado, e.descripcion  \r\n" + 
+					" FROM persona p \r\n" + 
+					" inner join tipo_documento t on p.idtipoDocumento = t.idtipo_documento \r\n" + 
+					" inner join nacionalidad n  on p.idnacionalidad =n.idnacionalidad \r\n" + 
+					" inner join rol r on p.idrol = r.idRol inner join estado e on p.idestado= e.idestado";
 			conn = new ConectaDB().getAcceso();
 			pstm = conn.prepareStatement(sql);
 			log.info(pstm);
@@ -89,10 +95,10 @@ public class PersonaModel {
 			pstm = conn.prepareStatement(sql);
 			pstm.setString(1, obj.getNumDoc());
 			pstm.setString(2, obj.getNumcel());
-			pstm.setInt(3, obj.getTipoDocumento().getIdTipoDocumento());
-			pstm.setInt(4, obj.getNacionalidad().getIdNacionalidad());
-			pstm.setInt(5, obj.getRol().getIdRol());
-			pstm.setInt(6, obj.getEstado().getIdEstado());
+			pstm.setInt(3, obj.getIdtipoDocumento());
+			pstm.setInt(4, obj.getIdnacionalidad());
+			pstm.setInt(5, obj.getIdrol());
+			pstm.setInt(6, obj.getIdestado());
 			
 			log.info(pstm);
 			salida = pstm.executeUpdate();

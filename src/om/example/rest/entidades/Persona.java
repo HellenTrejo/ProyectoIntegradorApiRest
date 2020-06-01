@@ -8,8 +8,38 @@ public class Persona {
 	private Nacionalidad nacionalidad;
 	private Rol rol;
 	private Estado estado;
+	
+	private int idtipoDocumento;
+	private int idnacionalidad;
+	private int idrol;
+	private int idestado;
+	
+	
 
-
+	public int getIdtipoDocumento() {
+		return idtipoDocumento;
+	}
+	public void setIdtipoDocumento(int idtipoDocumento) {
+		this.idtipoDocumento = idtipoDocumento;
+	}
+	public int getIdnacionalidad() {
+		return idnacionalidad;
+	}
+	public void setIdnacionalidad(int idnacionalidad) {
+		this.idnacionalidad = idnacionalidad;
+	}
+	public int getIdrol() {
+		return idrol;
+	}
+	public void setIdrol(int idrol) {
+		this.idrol = idrol;
+	}
+	public int getIdestado() {
+		return idestado;
+	}
+	public void setIdestado(int idestado) {
+		this.idestado = idestado;
+	}
 	public int getIdPersona() {
 		return idPersona;
 	}

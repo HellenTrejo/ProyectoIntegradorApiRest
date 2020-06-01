@@ -7,6 +7,23 @@ public class Triaje {
 	private Pregunta pregunta;
 	private Persona persona;
 	
+	private int idpregunta;
+	private int idpersona;
+	
+	
+	
+	public int getIdpregunta() {
+		return idpregunta;
+	}
+	public void setIdpregunta(int idpregunta) {
+		this.idpregunta = idpregunta;
+	}
+	public int getIdpersona() {
+		return idpersona;
+	}
+	public void setIdpersona(int idpersona) {
+		this.idpersona = idpersona;
+	}
 	public int getIdTriaje() {
 		return idTriaje;
 	}

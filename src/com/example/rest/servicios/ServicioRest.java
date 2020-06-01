@@ -35,7 +35,7 @@ import om.example.rest.entidades.Cifras;
 
 
 import om.example.rest.entidades.Persona;
-
+import om.example.rest.entidades.Rol;
 
 import com.example.rest.dao.PreguntaModel;
 import com.example.rest.dao.TriajeModel;
@@ -117,7 +117,7 @@ public class ServicioRest {
 	}
 	
 	@PUT
-	   @Path("/cifras")
+	   @Path("/cifras/update")
 	   @Consumes({MediaType.APPLICATION_JSON})
 	   @Produces({MediaType.APPLICATION_JSON})
 		public int actualizarCifras(Cifras bean) {
@@ -143,10 +143,12 @@ public class ServicioRest {
 	@POST
 	   @Path("/triaje/add")
 	   @Consumes({MediaType.APPLICATION_JSON})
-	   public Response saveTriaje(Triaje data){
+	   @Produces({MediaType.APPLICATION_JSON})
+	   public int saveTriaje(Triaje data){
 		log.info("saveTriaje rest ");
-		return Response.ok(daoTriaje.insertaTriaje(data)).build();
+		return daoTriaje.insertaTriaje(data);
 	   }
+	
 
 	@PUT
 	   @Path("/triaje{id}")
@@ -173,6 +175,16 @@ public class ServicioRest {
 		log.info("listarRol rest ");
 		return Response.ok(daoRol.listaRol()).build();
 	}
+	
+	@POST
+	   @Path("/rol/add")
+	   @Consumes({MediaType.APPLICATION_JSON})
+	   @Produces({MediaType.APPLICATION_JSON})
+		public int registrarRol(Rol bean) {
+		System.out.println("aqui bb");
+		return daoRol.insertaRol(bean);
+	}
+	
 
 	@GET
 	@Path("/persona")
@@ -183,15 +195,16 @@ public class ServicioRest {
 	}
 	
 	@POST
-	   @Path("/persona")
+	   @Path("/persona/add")
 	   @Consumes({MediaType.APPLICATION_JSON})
 	   @Produces({MediaType.APPLICATION_JSON})
 		public int registrarPersona(Persona bean) {
+		System.out.println("aqui bb");
 		return daoPersona.insertaPersona(bean);
 	}
 	
 	@PUT
-	   @Path("/persona")
+	   @Path("/persona/update")
 	   @Consumes({MediaType.APPLICATION_JSON})
 	   @Produces({MediaType.APPLICATION_JSON})
 		public int actualizarPersona(Persona bean) {
