@@ -30,7 +30,7 @@ private static final Log log= LogFactory.getLog(TriajeModel.class);
 		
 		List<Triaje> lista = new ArrayList<Triaje>();
 		try {
-			String sql = "select t.*, p.*, e.idpersona, e.numDoc, e.numCel from pregunta p inner join triaje t on p.idpregunta = t.idpregunta inner join persona e on t.idpersona= e.idpersona";
+			String sql = "select t.idtriaje,t.respuesta, p.*, e.idpersona, e.numDoc, e.numCel from pregunta p inner join triaje t on p.idpregunta = t.idpregunta inner join persona e on t.idpersona= e.idpersona";
 			//Tmr
 			conn = new ConectaDB().getAcceso();
 			pstm = conn.prepareStatement(sql);
@@ -46,8 +46,11 @@ private static final Log log= LogFactory.getLog(TriajeModel.class);
 				bean.setIdTriaje(rs.getInt(1));
 				bean.setRespuesta(rs.getString(2));
 				pre.setIdPregunta(rs.getInt(3));
+				pre.setDescripcion(rs.getString(4));
 				bean.setPregunta(pre);
-				per.setIdPersona(rs.getInt(4));
+				per.setIdPersona(rs.getInt(5));
+				per.setNumDoc(rs.getString(6));
+				per.setNumcel(rs.getString(7));
 				bean.setPersona(per);
 				
 				lista.add(bean);
