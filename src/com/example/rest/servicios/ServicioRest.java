@@ -211,6 +211,14 @@ public class ServicioRest {
 		return daoPersona.actualizaPersona(bean);
 
 	}
+	
+	@GET
+	@Path("/persona/{numDoc}")
+	@Produces({ MediaType.APPLICATION_JSON })
+	public Response ingresoPersona(@PathParam("numDoc") String numDoc) {
+		log.info("listarNumDoc rest ");
+		return Response.ok(daoPersona.ingresoPersona(numDoc)).build();
+	}
 
 	@DELETE
 	   @Path("/cifrasD{id}")

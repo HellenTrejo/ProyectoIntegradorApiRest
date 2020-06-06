@@ -1,5 +1,6 @@
 package com.example.rest.dao;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -11,6 +12,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import com.example.rest.util.ConectaDB;
+
 
 import om.example.rest.entidades.Estado;
 import om.example.rest.entidades.Nacionalidad;
@@ -147,6 +149,55 @@ public class PersonaModel {
 		return salida;
 	}
 
+	public List<Persona> ingresoPersona(String numDoc) {
+		Connection conn = null;
+		CallableStatement pstm = null;
+		ResultSet rs = null;
+		
+		List<Persona> lista = new ArrayList<Persona>();
+		try {
+			String sql = "call sp_ingresoCiudadano(?)";
+			conn = new ConectaDB().getAcceso();
+			pstm = conn.prepareCall(sql);
+			pstm.setString(1, numDoc);
+			log.info(pstm);
+			rs = pstm.executeQuery();
+			Persona bean = null;
+			while(rs.next()){
+				bean = new Persona();
+				bean.setIdPersona(rs.getInt(1));
+				bean.setNumDoc(rs.getString(2));
+				bean.setNumcel(rs.getString(3));
+				
+				TipoDocumento obj = new TipoDocumento();
+				obj.setIdTipoDocumento(rs.getInt(4));
+				bean.setTipoDocumento(obj);
+				
+				Nacionalidad obj2=new Nacionalidad();
+				obj2.setIdNacionalidad(rs.getInt(5));
+				bean.setNacionalidad(obj2);
+				
+				Rol obj3=new Rol();
+				obj3.setIdRol(rs.getInt(6));
+				bean.setRol(obj3);
+				
+				Estado obj4=new Estado();
+				obj4.setIdEstado(rs.getInt(7));
+				bean.setEstado(obj4);
+				
+				lista.add(bean);
+			}
+		} catch (Exception e) {
+			log.info(e);
+		} finally {
+			try {
+				if (rs != null)rs.close();
+				if (pstm != null)pstm.close();
+				if (conn != null)conn.close();
+			} catch (SQLException e) {}
+		}
+		return lista;
+	}
 	
 	
 
