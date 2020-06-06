@@ -33,7 +33,7 @@ private static final Log log= LogFactory.getLog(TriajeModel.class);
 			String sql = "select t.*, p.*, e.idpersona, e.numDoc, e.numCel\r\n" + 
 					"from pregunta p \r\n" + 
 					"inner join triaje t on p.idpregunta = t.idpregunta \r\n" + 
-					"inner join persona e on t.idpersona= e.idpersona ";
+					"inner join persona e on t.idpersona= e.idpersona";
 			conn = new ConectaDB().getAcceso();
 			pstm = conn.prepareStatement(sql);
 			log.info(pstm);
