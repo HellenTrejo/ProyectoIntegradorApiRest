@@ -171,18 +171,22 @@ public class PersonaModel {
 				
 				TipoDocumento obj = new TipoDocumento();
 				obj.setIdTipoDocumento(rs.getInt(4));
+				obj.setDescripcion(rs.getString(5));
 				bean.setTipoDocumento(obj);
 				
 				Nacionalidad obj2=new Nacionalidad();
-				obj2.setIdNacionalidad(rs.getInt(5));
+				obj2.setIdNacionalidad(rs.getInt(6));
+				obj2.setNombreNacionalidad(rs.getString(7));
 				bean.setNacionalidad(obj2);
 				
 				Rol obj3=new Rol();
-				obj3.setIdRol(rs.getInt(6));
+				obj3.setIdRol(rs.getInt(8));
+				obj3.setNombreRol(rs.getString(9));
 				bean.setRol(obj3);
 				
 				Estado obj4=new Estado();
-				obj4.setIdEstado(rs.getInt(7));
+				obj4.setIdEstado(rs.getInt(10));
+				obj4.setDescripcion(rs.getString(11));
 				bean.setEstado(obj4);
 				
 				lista.add(bean);
