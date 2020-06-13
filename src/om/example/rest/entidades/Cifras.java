@@ -3,6 +3,26 @@ package om.example.rest.entidades;
 public class Cifras {
 	private String fecha;
 	private int idCifras,nuevos,totales,fallecidos,recuperados;
+	
+	
+	private int iddepartamento;
+	private Departamento departamento;
+	
+	
+	
+	
+	public int getIddepartamento() {
+		return iddepartamento;
+	}
+	public void setIddepartamento(int iddepartamento) {
+		this.iddepartamento = iddepartamento;
+	}
+	public Departamento getDepartamento() {
+		return departamento;
+	}
+	public void setDepartamento(Departamento departamento) {
+		this.departamento = departamento;
+	}
 	public String getFecha() {
 		return fecha;
 	}

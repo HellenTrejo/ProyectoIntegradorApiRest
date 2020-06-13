@@ -99,11 +99,11 @@ public class ServicioRest {
 	}
 
 	@GET
-	@Path("/cifras/{fecha}")
+	@Path("/cifras/{fecha}/{iddepartamento}")
 	@Produces({ MediaType.APPLICATION_JSON })
-	public Response consultaPorFecha(@PathParam("fecha") String fecha) {
+	public Response consultaPorFecha(@PathParam("fecha") String fecha,@PathParam("iddepartamento") int idDepa) {
 		log.info("listarTodos rest ");
-		return Response.ok(daoCifras.consultaCifrasPorFecha(fecha)).build();
+		return Response.ok(daoCifras.consultaCifrasPorFechaYDepa(fecha, idDepa)).build();
 	}
 
 	
@@ -221,9 +221,9 @@ public class ServicioRest {
 	}
 
 	@DELETE
-	   @Path("/cifrasD{id}")
+	   @Path("/cifras/delete")
 	   @Produces({MediaType.APPLICATION_JSON})
-	   public Response removeCifras(@PathParam("id") int id, Cifras data){
+	   public Response removeCifras( Cifras data){
 		log.info("removeCifras rest ");
 		return Response.ok(daoCifras.eliminaCifras(data)).build();
 	   }
