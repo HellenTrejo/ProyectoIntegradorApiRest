@@ -19,6 +19,7 @@ import org.apache.commons.logging.LogFactory;
 
 
 import com.example.rest.dao.CifrasModel;
+import com.example.rest.dao.DepartamentoModel;
 import com.example.rest.dao.EstadoModel;
 
 import com.example.rest.dao.NacionalidadModel;
@@ -68,6 +69,7 @@ public class ServicioRest {
 	private RolModel daoRol = new RolModel();
 	private PersonaModel daoPersona = new PersonaModel();
 
+	private DepartamentoModel daoDepa= new DepartamentoModel();
 	
 	
 	
@@ -167,6 +169,14 @@ public class ServicioRest {
 			log.info("listarNacionalidad rest ");
 			return Response.ok(daoNacionalidad.listarNacionalidad()).build();
 		}
+	
+	@GET
+	@Path("/departamento")
+	@Produces({ MediaType.APPLICATION_JSON })
+	public Response listarDepartamento() {
+		log.info("listarDepartamento rest ");
+		return Response.ok(daoDepa.listarDepartamento()).build();
+	}
 	
 	@GET
 	@Path("/rol")
